@@ -29,3 +29,21 @@ Route::get('login',
 
 
 	);
+
+Route::post('/login',
+	array(
+		'as' => 'login',
+		'uses' => 'UsersController@handledLogin',
+		)
+
+
+	);
+
+Route::post('profile',
+	array(
+		'as' => 'profile',
+		'uses' => 'UsersController@profile',
+		)
+
+
+	);

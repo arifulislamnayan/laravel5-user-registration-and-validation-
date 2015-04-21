@@ -2,8 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use Input;
+use Auth;
+
 
 class UsersController extends Controller {
 
@@ -23,6 +26,21 @@ class UsersController extends Controller {
 
 
 	}
+
+	public function handledLogin()
+	{
+		$data = Input::only(['email', 'password']);
+
+        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+            return Redirect::to('/');
+        }
+
+        return Redirect::route('login')->withInput();
+
+
+
+	}
+
 	public function index()
 	{
 		//
