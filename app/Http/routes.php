@@ -39,10 +39,18 @@ Route::post('/login',
 
 	);
 
-Route::post('profile',
+Route::get('/profile',
 	array(
 		'as' => 'profile',
 		'uses' => 'UsersController@profile',
+		)
+
+
+	);
+Route::get('/logout',
+	array(
+		'as' => 'logout',
+		'uses' => 'UsersController@logout',
 		)
 
 

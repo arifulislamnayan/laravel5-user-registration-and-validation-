@@ -32,12 +32,29 @@ class UsersController extends Controller {
 		$data = Input::only(['email', 'password']);
 
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
-            return Redirect::to('/');
+            return Redirect::to('profile');
         }
 
         return Redirect::route('login')->withInput();
 
 
+
+	}
+
+	public function profile()
+	{
+		return view('users.profile');
+		
+	}
+
+
+	public function logout()
+	{
+		if(Auth::check()){
+        Auth::logout();
+        
+         }
+        return Redirect::route('login');
 
 	}
 
