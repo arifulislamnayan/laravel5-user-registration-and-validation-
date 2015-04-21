@@ -19,3 +19,13 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::get('login',
+	array(
+		'as' => 'login',
+		'uses' => 'UsersController@login',
+		)
+
+
+	);
