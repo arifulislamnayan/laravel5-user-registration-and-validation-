@@ -19,7 +19,8 @@ class UsersController extends Controller {
 	{
 
 		return view('users.login');
-		
+		//return view('default');
+
 
 	}
 	public function index()
