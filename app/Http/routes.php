@@ -55,3 +55,5 @@ Route::get('/logout',
 
 
 	);
+
+Route::resource('user', 'UsersController');
