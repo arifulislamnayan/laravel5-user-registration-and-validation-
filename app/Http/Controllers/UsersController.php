@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Input;
 use Auth;
+use App\User;
 
 
 class UsersController extends Controller {
@@ -84,7 +85,19 @@ class UsersController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$data= Input::only(['first_name', 'last_name', 'email', 'password']);
+		$newUser = User::create($data);
+		if($newUser)
+		{
+			Auth::login($newUser);
+			return Redirect::route('profile');
+
+
+
+		}
+
+
+		return Redirect::route('user.create')->withInput();
 	}
 
 	/**
